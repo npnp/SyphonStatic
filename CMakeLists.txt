@@ -15,13 +15,13 @@ project(SyphonStatic)
 
 enable_language(OBJC)
 
-include_directories("Syphon")
+include_directories(".")
 
-file(GLOB SOURCES Syphon/Syphon/*.m Syphon/Syphon/*.c Syphon/Syphon/*.metal)
+file(GLOB SOURCES Syphon/*.m Syphon/*.c Syphon/*.metal)
 
 add_library(SyphonStatic STATIC ${SOURCES})
 
-target_precompile_headers(SyphonStatic PUBLIC "Syphon/Syphon/Syphon_Prefix.pch")
+target_precompile_headers(SyphonStatic PUBLIC "Syphon/Syphon_Prefix.pch")
 
 target_link_libraries(SyphonStatic "-framework IOSurface")
 
@@ -31,18 +31,18 @@ target_link_libraries(SyphonStatic "-framework IOSurface")
 install(TARGETS SyphonStatic DESTINATION lib)
 
 install(FILES 
-		Syphon/Syphon/SyphonSubclassing.h
-		Syphon/Syphon/Syphon.h
-		Syphon/Syphon/SyphonClient.h
-		Syphon/Syphon/SyphonClientBase.h
-		Syphon/Syphon/SyphonImage.h
-		Syphon/Syphon/SyphonImageBase.h
-		Syphon/Syphon/SyphonMetalClient.h
-		Syphon/Syphon/SyphonMetalServer.h
-		Syphon/Syphon/SyphonOpenGLClient.h
-		Syphon/Syphon/SyphonOpenGLImage.h
-		Syphon/Syphon/SyphonOpenGLServer.h
-		Syphon/Syphon/SyphonServer.h
-		Syphon/Syphon/SyphonServerBase.h
-		Syphon/Syphon/SyphonServerDirectory.h
+		Syphon/SyphonSubclassing.h
+		Syphon/Syphon.h
+		Syphon/SyphonClient.h
+		Syphon/SyphonClientBase.h
+		Syphon/SyphonImage.h
+		Syphon/SyphonImageBase.h
+		Syphon/SyphonMetalClient.h
+		Syphon/SyphonMetalServer.h
+		Syphon/SyphonOpenGLClient.h
+		Syphon/SyphonOpenGLImage.h
+		Syphon/SyphonOpenGLServer.h
+		Syphon/SyphonServer.h
+		Syphon/SyphonServerBase.h
+		Syphon/SyphonServerDirectory.h
 	DESTINATION include/Syphon)
